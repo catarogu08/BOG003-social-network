@@ -2,8 +2,8 @@
     background-color: rgb(160, 157, 154);
 }
 
-button{
-    color: rgb(255, 67, 53);
-    font-family: Georgia, 'Times New Roman', Times, serif;
+h1{
+    color: red;
     font-size: medium;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

@@ -4,33 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" /><!--Firebase install-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"&amp;gt;><!--Responsive-->
   <title>Love.Car</title>
 </head>
 <body>
+
   <div class="firstPage" id="firstPage">
-    <h1>LOVE.CAR</h1>
+    <h1 class="title">LOVE.CAR</h1>
+    <button>Ya tengo cuenta¡</button>
     <h2>Correo:</h2>
-      <input type="text">
+      <input type="text" id="email">
     <h2>Nombre:</h2>
-      <input type="text">
+      <input type="text" id="yourName">
     <h2>Contraseña:</h2>
-      <input type="text">
+      <input type="text" id="password">
 
+ 
+   <button id="logIn">Registrarse</button>
+   <button>Registro con Gmail</button>
 
-   <button type="submit">Login</button>
-   <button>Ingresar con Gmail</button>
 
   <div class="secondPage" id="classPage">
     <h1>LOVE.CAR</h1>
+    <button>No tengo cuenta :(</button>
     <h2>Cuenta Gmail:</h2>
        <input type="text">
     <h2>Contraseña:</h2>
        <input type="text"> 
    <a href=""> 
    <button>Login</button>
+   <button>Login con Gmail</button>
   </div>
 
 
@@ -51,7 +53,29 @@
    <option value="2020">2020</option>
    <option value="2021">2021</option>
   </div>
-   
-  <script type="module" src="main.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBJMu_hEWY3VoHTUfVghqIvnszSAAdPWq4",
+      authDomain: "social-network-2f966.firebaseapp.com",
+      projectId: "social-network-2f966",
+      storageBucket: "social-network-2f966.appspot.com",
+      messagingSenderId: "566368128388",
+      appId: "1:566368128388:web:7097e07a3ffbf650c321d1",
+      measurementId: "G-WN4B648SQH"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script type="module" src="./pantallas/Function/main.js"></script>
 </body>
 </html>
