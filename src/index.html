@@ -1,65 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Love.Car</title>
 </head>
+
 <body>
+  <div id="root"></div>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-  <div class="firstPage" id="firstPage">
-    <h1 class="title">LOVE.CAR</h1>
-    <button>Ya tengo cuenta¡</button>
-    <h2>Correo:</h2>
-      <input type="text" id="email">
-    <h2>Nombre:</h2>
-      <input type="text" id="yourName">
-    <h2>Contraseña:</h2>
-      <input type="text" id="password">
-
- 
-   <button id="logIn">Registrarse</button>
-   <button>Registro con Gmail</button>
-
-
-  <div class="secondPage" id="classPage">
-    <h1>LOVE.CAR</h1>
-    <button>No tengo cuenta :(</button>
-    <h2>Cuenta Gmail:</h2>
-       <input type="text">
-    <h2>Contraseña:</h2>
-       <input type="text"> 
-   <a href=""> 
-   <button>Login</button>
-   <button>Login con Gmail</button>
-  </div>
-
-
-  <div class="navegationPage">
-    <h1>LOVE.CAR</h1>
-<select name="models"></select>
-   <option value=""disabled selected>Modelos</option>
-   <option value="2010">2010</option>
-   <option value="2011">2011</option>
-   <option value="2012">2012</option>
-   <option value="2013">2013</option>
-   <option value="2010">2014</option>
-   <option value="2015">2015</option>
-   <option value="2016">2016</option>
-   <option value="2017">2017</option>
-   <option value="2018">2018</option>
-   <option value="2019">2019</option>
-   <option value="2020">2020</option>
-   <option value="2021">2021</option>
-  </div>
   <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-analytics.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-  
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
@@ -71,11 +31,11 @@
       appId: "1:566368128388:web:7097e07a3ffbf650c321d1",
       measurementId: "G-WN4B648SQH"
     };
-  
+
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    firebase.initializeApp(firebaseConfig);
   </script>
   <script type="module" src="./pantallas/Function/main.js"></script>
 </body>
+
 </html>
