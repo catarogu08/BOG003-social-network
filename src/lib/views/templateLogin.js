@@ -1,5 +1,5 @@
 export const userExist = () => {
-  const divUser = document.createElement("div");
+  //const divUser = document.createElement("div");
 
   const viewUser = '<div class="secondPage" id="classPage">'
   '<h1 class="title">LOVE.CAR</h1>'
@@ -13,9 +13,9 @@ export const userExist = () => {
   '<button>Login con Gmail</button>'
   '</div>'
 
-  divUser = viewUser;
+ // divUser.innerHTML = viewUser;
 
-  return divUser;
+  return viewUser;
 };
 
 

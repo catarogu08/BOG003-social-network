@@ -1,4 +1,4 @@
-import { registerUser } from './lib/views/templeRegister.js';
+import { registerUser } from './lib/views/templateRegister.js';
 import { userExist } from './lib/views/templateLogin.js';
 
 
@@ -12,5 +12,7 @@ export const changeRoute = (hash) => {
 };
 
 const showTemplate = (hash) =>{
+    const showRegister = registerUser;
+    const showUserExist = userExist;
 
 }

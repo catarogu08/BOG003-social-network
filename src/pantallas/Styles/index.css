@@ -1,9 +1,15 @@
 *{
-    background-color: rgb(160, 157, 154);
+    margin: 10px;
+    padding: 10px;
 }
 
-h1{
+.title{
     color: red;
+    font-family: fantasy;
     font-size: medium;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button{
+    color: rgb(212, 106, 106);
+    size: 40px;
 }

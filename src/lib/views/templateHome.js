@@ -1,8 +1,4 @@
-import { registerUser } from "./templeRegister";
-
 export const home = () => {
-    const divHome = document.createElementById("div");
-
     const viewHome = '<div class="navegationPage">'
     '<h1>LOVE.CAR</h1>'
     '<select name="models"></select>';
@@ -22,8 +18,7 @@ export const home = () => {
     '<a href="#/home"></a>;'
     '</div>'
 
-    divHome = viewHome;
-    return divHome;
+    return viewHome;
     
     
 }
