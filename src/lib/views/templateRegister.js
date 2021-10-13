@@ -4,7 +4,7 @@ export const registerUser = () => {
   const viewRegister = `
     <div class="firstPage" id="firstPage">
     <h1 class="title">LOVE.CAR</h1>
-    <button id="enterCuenta">Ya tengo cuenta¡</button>
+    <button id="enterAccount">Ya tengo cuenta¡</button>
     <h2>Correo:</h2>
     <input type="text" id="email">
     <h2>Nombre:</h2>
@@ -26,11 +26,11 @@ export const registerUser = () => {
 
     firebase.auth().createUserWithEmailAndPassword(createEmail, createPassword)
       .then((userCredential) => {
-        alert("Bienvenido:) es hora de disfrutar")
+        window.alert(`Bienvenido :) es hora de disfrutar`);
         window.location.hash = "#/home";
       })
       .catch((error) => {
-        console.log("registro incorrecto")
+        window.alert("registro incorrecto");
       });
   });
 
@@ -48,30 +48,20 @@ export const registerUser = () => {
       .signInWithPopup(provider)
       .then((result) => {
         /** @type {firebase.auth.OAuthCredential} */
-        const credential = result.credential;
         window.location.hass = "/#home";
-
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // ...
       }).catch((error) => {
-        console.log("correo ya en uso ")
-          
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-        // ...
+        window.alert("correo ya en uso ")
       });
   })
 
-
+  const buttonExist = divRegister.querySelector("#enterAccount");
+  buttonExist.addEventListener("click", (e) =>{
+    window.location.hash = "#/login";
+  })
 
 
   return divRegister;
-  //Login google
+
 
 
 };

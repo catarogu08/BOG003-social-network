@@ -22,3 +22,12 @@ window.addEventListener("load", () => {
    window.addEventListener("hashchange", () => {
     showRoute(window.location.hash)
    });
+
+
+
+  /* const arrayShow = document.querySelector("#root")
+   const showDisplays = (arrayShow) =>{
+    document.querySelector("#root").appendChild(arraymostrar);
+
+    window.addEventListener("load", (showDisplays(arraymostrar)));
+   }*/

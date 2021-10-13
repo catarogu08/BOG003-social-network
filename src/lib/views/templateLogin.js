@@ -5,7 +5,7 @@ export const userExist = () => {
   <div class="secondPage" id="classPage">
   <h1 class="title">LOVE.CAR</h1>
   <a href="#/register"> 
-  <button id="cuentaNoExistente"> No tengo cuenta</button>
+  <button id="accountNotExistent"> No tengo cuenta</button>
   </a>
   <h2>Cuenta Gmail:</h2>
   <input type="text" id="yourEmail">
@@ -25,17 +25,14 @@ export const userExist = () => {
 
     firebase.auth().signInWithEmailAndPassword(enterEmail, enterPass)
       .then((userCredential) => {
-       const user = userCredential.user;
        window.location.hash = "#/home"
       })
       .catch((error) => {
-        console.log("cuenta no registrada")
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        window.alert("Revisa tener una cuenta registrada o Ingresa correctamente tus datos");
       })
   })
 
-  const buttonNoExist = divUser.querySelector("#cuentaNoExistente")
+  const buttonNoExist = divUser.querySelector("#accountNotExistent")
   buttonNoExist.addEventListener("cilck", (e) =>{
     window.location.hash = "#/registro";
   })
