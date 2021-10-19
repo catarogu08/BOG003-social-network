@@ -11,7 +11,7 @@ export const registerUser = () => {
     <input type="text" id="yourName"></input>
     <h2>Contraseña:</h2>
     <input type="password" id="password">
-    <button id="logIn">Registrarme</button>
+    <button type="reset" id="logIn">Registrarme</button>
     <button id="logInGmail">Entrar con Google</button>
     </div>`
 

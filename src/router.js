@@ -5,7 +5,7 @@ import { home } from './lib/views/templateHome.js';
 
 export const showRoute = (hash) => {
     document.getElementById("root").innerHTML= ""
-    if (hash === '#/register') {
+    if (hash === '#/register' || hash === '') {
         const newResult = registerUser();
         document.getElementById('root').appendChild(newResult)
     }

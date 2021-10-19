@@ -11,7 +11,7 @@ export const userExist = () => {
   <input type="text" id="yourEmail">
   <h2>Contraseña:</h2>
   <input type="password" id="yourPass">
-  <button id="enter">Login</button>
+  <button type="reset" id="enter">Login</button>
   <button>Login con Gmail</button>
   </div>`
 
