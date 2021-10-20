@@ -1,7 +1,7 @@
 export const home = () => {
-    const divHome = document.createElement("div");
+  const divHome = document.createElement("div");
 
-    const viewHome = `
+  const viewHome = `
     <section class="container">
     <div class="navegationPage">
     <h1 id="title">LOVE.CAR</h1>
@@ -21,14 +21,14 @@ export const home = () => {
     <option value="2021">2021</option>
     </select>
 
-     <form action="">
+     <form id="formPost">
   <h3>Marca:</h3>
-  <input type="text">
+  <input type="text" id="mark">
   <h3>Modelo:</h3>
-  <input type="number">
+  <input type="number" id="model">
   <h3>Descrpicion:</h3>
-  <input type="text">
-  <button>Crear</button>
+  <input type="text" id="description">
+  <button type="submit" id="creating">Crear</button>
   <button>Subir Cambios</button>
      </form>
 
@@ -66,25 +66,47 @@ export const home = () => {
     </footer>
     `
 
+//initialize Firestore
   const db = firebase.firestore();
-  db.collection("posts").add({
-      marca: "",
-      modelo: "",
-      descripcion: ""
+
+//Agg post
+  const formPosts = () => {
+    const mark = divHome.querySelector("#mark").value;
+    const model = divHome.querySelector("#model").value;
+    const description = divHome.querySelector("#description").value;
+}
+db.collection("posts").add({
+ mark:'',
+ model:'',
+ description:''
+})
+.then((docRef) => {
+  console.log("Document written with ID: ", docRef.id);
+  divHome.querySelector("#mark").value = '';
+  divHome.querySelector("#model").value = '';
+  divHome.querySelector("#description").value = '';
+})
+.catch((error) => {
+  console.error("Error adding document: ", error);
+  window.alert(`ocurrio un error revisa tu form`);
+});
+  
+
+  db.collection("posts").get().then((querySnapshot) => {
+    querySnapshot.forEach(() => {
+      console.log('hola')
+    });
+
   })
-      .then((docRef) => {
-          console.log("hola", docRef.id);
-      })
-      .catch((error) => {
-          console.error("Error adding document: ", error);
-      });
+
+
+ 
 
 
 
+  document.innerHTML = viewHome;
 
-    divHome.innerHTML = viewHome;
-
-    return divHome;
+  return document;
 
 
 }
