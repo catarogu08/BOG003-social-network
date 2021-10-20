@@ -32,12 +32,8 @@ export const home = () => {
   <button>Subir Cambios</button>
      </form>
 
-    <button id="btnDeleted">
-       <img src="./img/images.png" width="60px" alt="">
-    </button>
-    <button id="btnEdit">
-        <img src="./img/edit.jpg" width="60px" alt="">
-    </button>
+    <button id="btnDeleted"> Eliminar </button>
+    <button id="btnEdit"> Editar </button>
 
       <a href="#/home"></a>
     </div>
@@ -65,55 +61,40 @@ export const home = () => {
     </div>
     </footer>
     `
+    divHome.innerHTML = viewHome;
+    
 
 //initialize Firestore
   const db = firebase.firestore();
-
-//Agg post
-  const formPosts = () => {
+  const btnCreate = divHome.querySelector("#creating");
+  btnCreate.addEventListener('click', (e) => {
     const mark = divHome.querySelector("#mark").value;
     const model = divHome.querySelector("#model").value;
     const description = divHome.querySelector("#description").value;
-}
-db.collection("posts").add({
- mark:'',
- model:'',
- description:''
-})
-.then((docRef) => {
-  console.log("Document written with ID: ", docRef.id);
-  divHome.querySelector("#mark").value = '';
-  divHome.querySelector("#model").value = '';
-  divHome.querySelector("#description").value = '';
-})
-.catch((error) => {
-  console.error("Error adding document: ", error);
-  window.alert(`ocurrio un error revisa tu form`);
-});
-  
+    if (mark !== '' && model !== '' && description !== '')  {
+      console.log('esta completo')
+      db.collection("posts").add({
+        mark: mark,
+        model:model,
+        description: description
+       })
+       .then((docRef) => {
+         console.log("Document written with ID: ", docRef.id);
+         divHome.querySelector("#mark").value = '';
+         divHome.querySelector("#model").value = '';
+         divHome.querySelector("#description").value = '';
+       })
+       .catch((error) => {
+         console.error("Error adding document: ", error);
+         window.alert(`ocurrio un error revisa tu form`);
+       });
 
-  db.collection("posts").get().then((querySnapshot) => {
-    querySnapshot.forEach(() => {
-      console.log('hola')
-    });
+    } else {
+      window.alert(`revisa tu informacion`);
+
+    }
 
   })
 
-
- 
-
-
-
-  document.innerHTML = viewHome;
-
-  return document;
-
-
+ return divHome;
 }
-
-
-
-
-
-
-
