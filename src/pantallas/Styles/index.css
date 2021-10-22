@@ -9,6 +9,10 @@
     border: 20%;
     }
 
+.form{
+    background-color: rgb(255, 217, 0);
+}
+
 .title{
     color:#000000;
     font-family: 'Courier New', Courier, monospace;
@@ -36,8 +40,6 @@ button{
     background-color: rgb(211, 210, 210);
     font-family: 'Courier New', Courier, monospace ;
     color: rgb(0, 0, 0);
-    margin: 1rem;
-    padding: 1rem;
 }
 
 footer{
@@ -54,9 +56,9 @@ footer div{
     bottom: 0;
     width: 100%;
 }
-.container{
-    height: 87vh;
 
+.viewPost{
+    background-color: rgb(211, 210, 210);
 }
 
 #btnLike{

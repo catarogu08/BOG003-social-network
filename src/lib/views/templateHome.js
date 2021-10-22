@@ -1,7 +1,8 @@
 export const home = () => {
-  const divHome = document.createElement("div");
+  const divHome = document.createElement("div")
 
   const viewHome = `
+  <div class="left">
     <section class="container">
     <div class="navegationPage">
     <h1 id="title">LOVE.CAR</h1>
@@ -20,8 +21,13 @@ export const home = () => {
     <option value="2020">2020</option>
     <option value="2021">2021</option>
     </select>
+    </div>
+    </section>
+    </div>
 
-     <form id="formPost">
+    <div class="right"> 
+  <section class="form">
+    <form id="formPost">
   <h3>Marca:</h3>
   <input type="text" id="mark">
   <h3>Modelo:</h3>
@@ -31,21 +37,12 @@ export const home = () => {
   <button type="submit" id="creating">Crear</button>
   <button>Subir Cambios</button>
      </form>
-
-    <button id="btnDeleted"> Eliminar </button>
-    <button id="btnEdit"> Editar </button>
-
       <a href="#/home"></a>
-    </div>
-
-    <div class="like">
-    <button id="btnLike">
-      <img src="./img/like.png"  width="55px" alt="">
-    </button>
-    </div>
     </section>
-      
-  
+
+    <section class="viewPost">
+</section>
+</div>
 
     <footer>
     <div>
@@ -76,7 +73,7 @@ export const home = () => {
       db.collection("posts").add({
         mark: mark,
         model:model,
-        description: description
+        description: description,
        })
        .then((docRef) => {
          console.log("Document written with ID: ", docRef.id);
@@ -91,10 +88,51 @@ export const home = () => {
 
     } else {
       window.alert(`revisa tu informacion`);
-
     }
-
   })
+//
+ const viewPost = divHome.querySelector('.viewPost')
+  db.collection("posts").onSnapshot((querySnapshot) => {
+    viewPost.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      console.log(`${doc.id} => ${doc.data()}`);
+      viewPost.innerHTML += `
+      <div class="post">
+      <div>2
+        <p id='marked-${doc.id}'>Marca: ${doc.data().mark} </p>
+      </div>
+      <div>
+        <p>Modelo:  ${doc.data().model}</p>
+      </div>
+      <div>
+        <p>Descripcion: ${doc.data().description}</p>
+      </div>
+      <div>
+        <div class="btnOption">
+          <button class="btnDeleted"> Eliminar </button>
+          <button class="btnEdit" data-docid="${doc.id}"> Editar </button>
+        </div>
+        <div class="like">
+          <button id="btnLike"><img src="./img/like.png" width="55px" alt=""></button>
+        </div>
+      </div>
+    </div>
+    `
+    });
+  });
+
+
+   /* const btnEdits = divHome.querySelectorAll('.btnEdit');
+    btnEdits.forEach( (button) => {
+    button.addEventListener('click', (e) =>{
+      const button = e.target;
+      const id = button.dataset.docid;
+      console.log(id)
+
+    const valorMark = divHome.querySelector(`#marked-${id}`).textContent;
+    console.log(valorMark);
+    })
+    })*/
 
  return divHome;
 }
