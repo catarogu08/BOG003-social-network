@@ -1,5 +1,5 @@
 export const registerUser = () => {
-  const divRegister = document.createElement("div");
+  const divRegister = document.createElemendit("div");
 
   const viewRegister = `
     <div class="firstPage" id="firstPage">
@@ -35,7 +35,7 @@ export const registerUser = () => {
   });
 
 
-
+//google
   const googleLog = divRegister.querySelector("#logInGmail");
 
   googleLog.addEventListener("click", (e) => {
@@ -54,6 +54,7 @@ export const registerUser = () => {
       });
   })
 
+  
   const buttonExist = divRegister.querySelector("#enterAccount");
   buttonExist.addEventListener("click", (e) =>{
     window.location.hash = "#/login";

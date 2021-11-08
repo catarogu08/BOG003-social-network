@@ -71,7 +71,7 @@ export const home = () => {
     const model = divHome.querySelector("#model").value;
     const description = divHome.querySelector("#description").value;
     if (mark !== '' && model !== '' && description !== '') {
-      console.log('esta completo')
+      //console.log('esta completo')
       db.collection("posts").add({
         mark: mark,
         model: model,
@@ -124,7 +124,7 @@ export const home = () => {
 
 
     //Eliminar post
-    let btnDeleted = divHome.querySelectorAll('.btnDeleted');
+    const btnDeleted = divHome.querySelectorAll('.btnDeleted');
     btnDeleted.forEach((btnD) => {
       btnD.addEventListener('click', (e) => {
         const id = e.target.dataset.id;
@@ -141,7 +141,7 @@ export const home = () => {
 
     //Editar Post
     let btnEditer = divHome.querySelectorAll('.btnEdit');
-    btnEditer.forEach((btn) => {
+    btnEditer.forEach((btn) => {         //callback
       btn.addEventListener('click', (e) => {
         const button = e.target;
         const id = e.target.dataset.id;
